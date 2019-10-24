@@ -9,18 +9,19 @@ class Config(object):
     SECRET_KEY = '12345'
     
     pw = os.environ.get('POSTGRESPW')
+    print(pw)
     user='postgres'
     url='localhost'
     db='postgres'
 
     # postgres
-    SQLALCHEMY_DATABASE_URI = f'postgresql+psycopg2://postgres:{pw}@{url}/{db}'
+    SQLALCHEMY_DATABASE_URI = f'postgresql+psycopg2://{user}:{pw}@{url}/{db}'
 
     # Flask-User configuration
-    USER_APP_NAME = "ICEy ToDo App"      # Shown in and email templates and page footers
-    USER_ENABLE_EMAIL = False      # Disable email authentication
-    USER_ENABLE_USERNAME = True    # Enable username authentication
-    USER_REQUIRE_RETYPE_PASSWORD = False    # Simplify register form
+    # USER_APP_NAME = "Flasky To-Do App"      # Shown in and email templates and page footers
+    # USER_ENABLE_EMAIL = False      # Disable email authentication
+    # USER_ENABLE_USERNAME = True    # Enable username authentication
+    # USER_REQUIRE_RETYPE_PASSWORD = False    # Simplify register form
 
 
 class ProductionConfig(Config):
