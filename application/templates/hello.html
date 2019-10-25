@@ -1,9 +1,34 @@
 <!doctype html>
 
 <head>
-    <title>Hello!</title>
+    <title>Flasky-ToDo's</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
 
-<body>
-  <h1>Hello Michael!</h1>
+  <div class="container center-align">
+  <h1 class="teal">Hello Michael!</h1>
+  <h2>Welcome to your To do's</h2>
+        <div class="card center-align">
+            <table class="table table-sm">
+                <thead>
+                  <tr>
+                      <th scope="col">ID</th>
+                      <th scope="col">Task</th>
+                      <th scope="col">Due by</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    {% for td in todos %}
+                    <tr>
+                    <td scope="row">{{td.id}}</td>
+                    <td>{{td.taskname}}</td>
+                    <td>{{td.duedate}}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+              </table>
+          </div>
+    </div>
+
 </body>

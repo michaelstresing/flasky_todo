@@ -12,16 +12,22 @@ class Todo(db.Model):
                    primary_key=True)
 
     taskname = Column(String(64))
-    
+
     taskdifficulty = Column(Integer)
 
-    time_created = Column(DateTime(timezone=True), server_default=func.now())
-
+    time_created = Column(DateTime(timezone=True),
+                             server_default=func.now())
+                             
     duedate = Column(Date)
 
     @staticmethod
     def from_dict(dict):
-        return Todo(taskname=dict['taskname'])
+
+        return Todo(
+            taskname=dict['taskname'],
+            taskdifficulty=dict['taskdifficulty'],
+            duedate=dict['duedate']
+            )
 
     def to_dict(self):
        """Return object data in easily serializable format"""
